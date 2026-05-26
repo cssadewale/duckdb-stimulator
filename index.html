@@ -3275,8 +3275,7 @@ function doAdvExport() {
     values.forEach(row => { content += row.map(v => v === null ? '' : v).join('\t') + '\n'; });
     ext = 'tsv'; mime = 'text/tab-separated-values';
   } else if (fmt === 'html-table') {
-    content = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>table{border-collapse:collapse;font-family:monospace;font-size:12px}th,td{border:1px solid #ccc;padding:6px 10px;text-align:left}th{background:#eee}</style>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head><body>\n<table>\n`;
+    content = `<!DOCTYPE html><html><head><meta charset="UTF-8"><style>table{border-collapse:collapse;font-family:monospace;font-size:12px}th,td{border:1px solid #ccc;padding:6px 10px;text-align:left}th{background:#eee}</style></head><body>\n<table>\n`;
     if (incHeader) content += '<thead><tr>' + columns.map(c => `<th>${esc(c)}</th>`).join('') + '</tr></thead>\n';
     content += '<tbody>\n';
     values.forEach(row => { content += '<tr>' + row.map(v => `<td>${v === null ? '' : esc(String(v))}</td>`).join('') + '</tr>\n'; });
